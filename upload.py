@@ -42,6 +42,7 @@ for file in files:
     with open(file, 'rb') as fs:
         # store the base64 encoded string for each image
         encoded = base64.b64encode(fs.read())
+        index += 1
         print ("Adding card {}/{}...".format(index, total))
         mongo.cc.cards.insert_one({
             "name": parse_filename(file),
